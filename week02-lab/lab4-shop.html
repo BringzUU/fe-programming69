@@ -36,6 +36,7 @@ window.onerror = function(message) {
 // ===== จบตัวช่วย (อย่าลบส่วนบนนี้) =====
 
 // 👇 ลบโค้ดทดลองเก่า แล้ววางตัวอย่างใหม่ใต้บรรทัดนี้ 👇
+
 const products = [
   { name: "เมาส์",      price: 350,  inStock: true  },
   { name: "คีย์บอร์ด",   price: 1200, inStock: true  },
@@ -43,6 +44,35 @@ const products = [
   { name: "หูฟัง",      price: 890,  inStock: true  },
   { name: "ลำโพง",      price: 1500, inStock: false }
 ];
+// 1) map
+const labels = products.map(p => `${p.name} ราคา ${p.price} บาท`);
+
+console.log("รายการสินค้า");
+labels.forEach(label => console.log(label));
+
+// 2) filter
+const cheapInStock = products.filter(p => p.inStock && p.price <= 1000);
+
+console.log("สินค้าที่มีของและราคาไม่เกิน 1000 บาท");
+cheapInStock.forEach(p => {
+  console.log(`${p.name} ราคา ${p.price} บาท`);
+});
+
+// 3) reduce
+const totalInStock = products
+  .filter(p => p.inStock)
+  .reduce((sum, p) => sum + p.price, 0);
+
+console.log("มูลค่ารวม:", totalInStock);
+
+// 4) spread
+const newProducts = [
+  ...products,
+  { name: "เว็บแคม", price: 990, inStock: true }
+];
+
+console.log("จำนวนสินค้าเดิม:", products.length);
+console.log("จำนวนสินค้าใหม่:", newProducts.length);
 
 </script>
 
