@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>การแก้ไขเนื้อหาและหน้าตา</title>
+</head>
+<body>
+
+    <h1 id="title">ตัวอย่าง JavaScript DOM</h1>
+
+    <!-- 6.1 -->
+    <h2>6.1 innerHTML และ textContent</h2>
+
+    <p id="box">ข้อความเดิม</p>
+
+    <button onclick="showText()">ใช้ textContent</button>
+    <button onclick="showHTML()">ใช้ innerHTML</button>
+
+    <hr>
+
+    <!-- 6.2 -->
+    <h2>6.2 เปลี่ยน Attribute และรูปภาพ</h2>
+
+    <img id="img" src="cat1.jpg" alt="แมวตัวแรก" width="250">
+
+    <br><br>
+
+    <a id="link" href="https://www.google.com">Google</a>
+
+    <br><br>
+
+    <button onclick="changeAttribute()">
+        เปลี่ยนรูปและลิงก์
+    </button>
+
+    <hr>
+
+    <!-- 6.3 -->
+    <h2>6.3 เปลี่ยน Style</h2>
+
+    <button onclick="changeStyle()">
+        เปลี่ยนสไตล์
+    </button>
+
+    <script>
+
+        // ==========================
+        // 6.1 innerHTML และ textContent
+        // ==========================
+
+        const box = document.getElementById("box");
+
+        function showText() {
+            box.textContent = "<b>สวัสดี</b>";
+        }
+
+        function showHTML() {
+            box.innerHTML = "<b>สวัสดี</b>";
+        }
+
+        // ==========================
+        // 6.2 เปลี่ยน Attribute
+        // ==========================
+
+        const img = document.getElementById("img");
+        const link = document.getElementById("link");
+
+        function changeAttribute() {
+            img.src = "https://placecats.com/300/200";
+            img.alt = "แมวตัวที่สอง";
+
+            link.href = "https://www.google.com";
+            link.setAttribute("target", "_blank");
+
+            console.log(link.getAttribute("href"));
+        }
+
+        // ==========================
+        // 6.3 เปลี่ยน Style
+        // ==========================
+
+        const title = document.getElementById("title");
+
+        function changeStyle() {
+            title.style.color = "white";
+            title.style.backgroundColor = "teal";
+            title.style.fontSize = "28px";
+            title.style.padding = "12px";
+        }
+
+    </script>
+
+</body>
+</html>
